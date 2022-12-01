@@ -18,8 +18,6 @@ fn get_day_from_args() -> usize {
         .expect("Provided day wasn't a valid integer")
 }
 
-
-
 /// Reads the input for a day from the `.input` directory.
 fn load_input(file_path: String) -> impl Iterator<Item = String> {
     let file = fs::OpenOptions::new()

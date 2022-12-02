@@ -38,7 +38,8 @@ impl Solution for Day1 {
         let mut sums: Vec<u32> = self.elves.iter().map(|cals| cals.iter().sum()).collect();
 
         sums.sort();
-        format!("{}", sums.iter().rev().take(3).sum::<u32>())
+        let result: u32 = sums.iter().rev().take(3).sum();
+        format!("{}", result)
     }
 }
 

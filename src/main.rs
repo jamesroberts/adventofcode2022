@@ -1,10 +1,12 @@
 mod day1;
+mod day2;
 mod utils;
 
 use std::io::{BufRead, BufReader};
 use std::{env, fs};
 
 use day1::Day1;
+use day2::Day2;
 use utils::{time_execution, Solution};
 
 use crate::utils::FromInput;
@@ -36,6 +38,7 @@ fn load_input(file_path: String) -> impl Iterator<Item = String> {
 fn get_solution(day: usize, input: impl Iterator<Item = String>) -> Box<dyn Solution> {
     match day {
         1 => Box::new(Day1::from_input(input)),
+        2 => Box::new(Day2::from_input(input)),
         _other => panic!("No solution for day {day}"),
     }
 }

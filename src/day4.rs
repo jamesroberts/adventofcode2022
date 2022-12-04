@@ -34,11 +34,8 @@ impl Solution for Day4 {
 
         for ids in self.0.iter() {
             let (a, b, x, y) = (ids[0], ids[1], ids[2], ids[3]);
-
-            if a <= x && x <= b || a <= y && y <= b {
-                total += 1
-            }
-            else if x <= a && a <= y || x <= b && b <= y {
+            
+            if b >= x && a <= y {
                 total += 1
             }
         }

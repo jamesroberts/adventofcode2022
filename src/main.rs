@@ -2,6 +2,7 @@ mod day1;
 mod day2;
 mod day3;
 mod day4;
+mod day5;
 mod utils;
 
 use std::io::{BufRead, BufReader};
@@ -11,6 +12,7 @@ use day1::Day1;
 use day2::Day2;
 use day3::Day3;
 use day4::Day4;
+use day5::Day5;
 use utils::{time_execution, Solution};
 
 use crate::utils::FromInput;
@@ -35,7 +37,7 @@ fn load_input(file_path: String) -> impl Iterator<Item = String> {
 
     buffered_file
         .lines()
-        .map(|line| line.expect("Should parse valid line").trim().to_string())
+        .map(|line| line.expect("Should parse valid line").to_string())
 }
 
 ///Get the solution for a specific day
@@ -45,6 +47,7 @@ fn get_solution(day: usize, input: impl Iterator<Item = String>) -> Box<dyn Solu
         2 => Box::new(Day2::from_input(input)),
         3 => Box::new(Day3::from_input(input)),
         4 => Box::new(Day4::from_input(input)),
+        5 => Box::new(Day5::from_input(input)),
         _other => panic!("No solution for day {day}"),
     }
 }

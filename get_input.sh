@@ -89,4 +89,31 @@ mod tests {
 EOF
 fi
 
+if test -e "$1.py"; then
+  echo "$1.py already exists, skipping..."
+else
+  cat <<-EOF > "$1.py"
+t = 0
+
+while True:
+    try:
+        line = input().strip()
+    except:
+        break
+
+    # a, b = map(int, line.split("-"))
+    # t += 1
+
+print(t)
+EOF
+
+fi
+
+cat <<-EOF > "aoc"
+python3 $1.py < .test_input/$1.txt
+echo "======================"
+python3 $1.py < .input/$1.txt
+EOF
+chmod +x aoc
+
 echo "Happy coding!"

@@ -17,3 +17,6 @@ Cargo.lock
 .session
 .test_input
 .input
+
+*.py
+aoc

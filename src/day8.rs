@@ -18,27 +18,41 @@ fn tree_visible(grid: &Vec<Vec<u32>>, x: usize, y: usize) -> bool {
         return true;
     }
     
-    let mut slice = grid.iter().map(|s| s.iter().nth(y).unwrap());
-    if slice.all(|&t| t > grid[x][y]) {
-        return true;
+    for xi in (x + 1)..grid.len() {
+        if grid[xi][y] >= grid[x][y] {
+            break;
+        }
+        if xi == grid.len() - 1 {
+            return true;
+        }
     }
 
-    let mut slice = grid.iter().rev().map(|s| s.iter().nth(y).unwrap());
-    if slice.all(|&t| t > grid[x][y]) {
-        return true;
+    for xd in (0..x).rev() {
+        if grid[xd][y] >= grid[x][y] {
+            break;
+        }
+        if xd == 0 {
+            return true;
+        }
     }
 
-    let range = grid[x].len()-1-y;
-    let mut slice = grid[x].iter().rev().take(range).rev();
-    if slice.all(|&t| t > grid[x][y]) {
-        return true;
-    }
-   
-    let mut slice = grid[x].iter().take(y).rev();
-    if slice.all(|&t| t > grid[x][y]) {
-        return true;
+    for yi in (y + 1)..grid.len() {
+        if grid[x][yi] >= grid[x][y] {
+            break;
+        }
+        if yi == grid.len() - 1 {
+            return true;
+        }
     }
 
+    for yd in (0..y).rev() {
+        if grid[x][yd] >= grid[x][y] {
+            break;
+        }
+        if yd == 0 {
+            return true;
+        }
+    }
     return false;
 }
 

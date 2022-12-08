@@ -13,7 +13,6 @@ pub trait Solution {
 }
 
 /// Times the execution of a function.
-// pub fn time_execution(func: impl Fn() -> String) -> (String, u128) {
 pub fn time_execution(func: impl Fn() -> String) -> (String, f32) {
     let timer = Instant::now();
     let result = func();

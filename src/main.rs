@@ -12,6 +12,7 @@ mod day11;
 mod day12;
 mod day13;
 mod day14;
+mod day15;
 mod utils;
 
 use std::io::{BufRead, BufReader};
@@ -31,6 +32,7 @@ use day11::Day11;
 use day12::Day12;
 use day13::Day13;
 use day14::Day14;
+use day15::Day15;
 use utils::{time_execution, Solution};
 
 use crate::utils::FromInput;
@@ -75,6 +77,7 @@ fn get_solution(day: usize, input: impl Iterator<Item = String>) -> Box<dyn Solu
         12 => Box::new(Day12::from_input(input)),
         13 => Box::new(Day13::from_input(input)),
         14 => Box::new(Day14::from_input(input)),
+        15 => Box::new(Day15::from_input(input)),
         _other => panic!("No solution for day {day}"),
     }
 }

@@ -1,6 +1,6 @@
 use crate::utils::{FromInput, Solution};
 
-use std::{cmp::{min, max}, collections::HashMap};
+use std::collections::HashMap;
 use nom::{bytes::complete::tag, sequence::tuple, IResult, combinator::map};
 
 pub struct Day15(Vec<SensorBeaconPair>);
